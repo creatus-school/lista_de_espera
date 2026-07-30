@@ -61,5 +61,4 @@ document.getElementById('form-espera').addEventListener('submit', function(e) {
             alert('Houve um erro ao enviar. Tente novamente.');
             btn.innerText = textoOriginal;
         });
-    
 });
