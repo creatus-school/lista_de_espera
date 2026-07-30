@@ -1,0 +1,542 @@
+:root {
+    --cyan: #009BDB;
+    --purple: #6A2B86;
+    --text-dark: #ffffff; 
+    --text-muted: #b3b3b3; 
+    --bg-dark: #120524; /* Novo fundo Roxo Premium Escuro */
+    --card-bg: rgba(255, 255, 255, 0.03); 
+    --card-border: rgba(255, 255, 255, 0.08); 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Cabeçalho */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5% 0;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.logo {
+    max-width: 250px;
+    height: auto;
+    filter: brightness(0) invert(1); /* Deixa a logo branca para aparecer no fundo preto */
+}
+
+/* Seção Principal (Hero) */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 5% 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+    min-height: 70vh;
+    gap: 50px;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+}
+
+.hero-content h1 span {
+    background: linear-gradient(45deg, var(--cyan), var(--purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+/* Formulário Inline */
+.waitlist-form {
+    display: flex;
+    gap: 10px;
+    background: var(--card-bg);
+    padding: 10px;
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(15px);
+    border: 1px solid var(--card-border);
+}
+
+.waitlist-form input {
+    flex: 1;
+    padding: 15px 25px;
+    border-radius: 40px;
+    border: none;
+    background: transparent;
+    font-size: 1rem;
+    outline: none;
+    color: white;
+}
+
+.waitlist-form input::placeholder {
+    color: #888;
+}
+
+.waitlist-form button {
+    padding: 15px 35px;
+    border-radius: 40px;
+    border: none;
+    background: linear-gradient(45deg, var(--cyan), var(--purple));
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 5px 20px rgba(106, 43, 134, 0.4);
+}
+
+.waitlist-form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(106, 43, 134, 0.6);
+}
+
+/* Área da Imagem Fluida */
+.hero-image-wrapper {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -80px;
+}
+
+.fluid-blob {
+    width: 550px;
+    height: 550px;
+    background: linear-gradient(135deg, var(--cyan), var(--purple));
+    animation: morph 8s ease-in-out infinite;
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 60px rgba(106, 43, 134, 0.4), inset 0 0 50px rgba(0,0,0,0.5);
+    overflow: hidden;
+}
+
+.fluid-blob img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.placeholder-text {
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Elementos Flutuantes com Contorno Luminoso */
+.floating-badge {
+    position: absolute;
+    background: rgba(15, 15, 15, 0.9);
+    backdrop-filter: blur(12px);
+    padding: 15px 25px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    color: white;
+    animation: float 6s ease-in-out infinite;
+    z-index: 2;
+}
+
+/* O Efeito de Glow/Neon atrás do badge */
+.floating-badge::before {
+    content: "";
+    position: absolute;
+    inset: -2px; /* Espessura do contorno luminoso */
+    border-radius: inherit;
+    background: linear-gradient(45deg, var(--cyan), var(--purple));
+    z-index: -1;
+    filter: blur(8px); /* Intensidade do brilho */
+    opacity: 0.8;
+}
+
+.badge-1 { top: 10%; left: -5%; animation-delay: 0s; }
+.badge-2 { bottom: 15%; right: -10%; animation-delay: -2s; }
+.badge-3 { bottom: -5%; left: 10%; animation-delay: -4s; }
+
+/* Seção de Cards Inferiores (Resumo) */
+.features {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Permite que os cartões pulem para a linha de baixo */
+    gap: 30px;
+    padding: 20px 5% 80px;
+    max-width: 1400px;
+    margin: 2px auto 0;
+    position: relative;
+    z-index: 10;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.05); /* Mudamos de 0.85 para 0.05 (fundo de vidro escuro) */
+    backdrop-filter: blur(15px);
+    padding: 30px;
+    border-radius: 24px;
+    width: calc(33.333% - 20px); 
+    min-width: 280px; 
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Adicionamos uma borda clara bem sutil */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); /* Sombra mais escura para dar profundidade */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card-cyan { border-top: 3px solid var(--cyan); }
+.card-purple { border-top: 3px solid var(--purple); }
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(0, 155, 219, 0.2);
+}
+
+.feature-card h3 {
+    color: var(--text-dark);
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.feature-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* O Ecossistema em Detalhes */
+.ecosystem-details {
+    padding: 20px 5% 80px;
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+}
+
+.ecosystem-details h2 {
+    font-size: 2.2rem;
+    color: var(--text-dark);
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.detail-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    background: rgba(255, 255, 255, 0.05); /* Fundo de vidro escuro para o texto branco aparecer */
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.1); /* Borda clara bem sutil */
+    padding: 40px;
+    border-radius: 24px;
+    margin-bottom: 60px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3); /* Sombra base escura para dar profundidade */
+    transition: transform 0.3s, box-shadow 0.3s; /* Prepara a animação da luz */
+}
+
+.detail-card:hover {
+    transform: translateX(10px);
+    border-left: 5px solid var(--cyan);
+    box-shadow: 0 20px 60px rgba(0, 155, 219, 0.35); /* A luz azul (glow) que aparece ao passar o mouse */
+}
+
+.detail-icon {
+    font-size: 3.5rem;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+}
+
+.detail-text h3 {
+    font-size: 1.5rem;
+    color: var(--cyan);
+    margin-bottom: 15px;
+}
+
+.detail-text p {
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 10px;
+    font-size: 1.05rem;
+}
+
+.detail-text strong {
+    color: var(--text-dark);
+}
+
+/* Depoimentos em Vídeo (Carrossel) */
+.testimonials {
+    padding: 20px 5% 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.testimonials h2 {
+    font-size: 2.2rem;
+    color: var(--text-dark);
+    margin-bottom: 40px;
+}
+
+.carousel-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 30px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 20px 10px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.carousel-track::-webkit-scrollbar {
+    display: none;
+}
+
+.video-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--card-border);
+    padding: 20px;
+    border-radius: 24px;
+    min-width: 320px;
+    max-width: 320px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    text-align: left;
+    flex-shrink: 0;
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    background: #000;
+}
+
+.video-wrapper iframe, .video-wrapper video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.video-card h4 {
+    color: var(--cyan);
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.video-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    font-style: italic;
+}
+
+/* Botões do Carrossel (Setas) */
+.carousel-btn {
+    background: linear-gradient(135deg, var(--cyan), var(--purple));
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    position: absolute;
+    z-index: 20;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-btn:hover {
+    transform: scale(1.1);
+}
+
+.prev-btn { left: -25px; }
+.next-btn { right: -25px; }
+
+/* Sobre o Mentor */
+.about-mentor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    padding: 60px 5%;
+    max-width: 1000px;
+    margin: 0 auto 80px;
+    background: var(--card-bg);
+    backdrop-filter: blur(20px);
+    border-radius: 30px;
+    border: 1px solid var(--card-border);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 10;
+}
+
+.mentor-image {
+    width: 260px;
+    height: 380px;
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    background: linear-gradient(135deg, var(--cyan), var(--purple));
+    animation: morph 6s ease-in-out infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+}
+
+.mentor-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+}
+
+.mentor-placeholder {
+    color: white;
+    font-weight: bold;
+}
+
+.mentor-info h2 {
+    font-size: 2.2rem;
+    color: var(--text-dark);
+    margin-bottom: 15px;
+}
+
+.mentor-info p {
+    color: var(--text-muted);
+    line-height: 1.7;
+    font-size: 1.1rem;
+}
+
+/* Rodapé Escuro e Elegante */
+footer {
+    background: #0a0214; /* Roxo ainda mais escuro para o rodapé */
+    color: white;
+    padding: 20px 5%; 
+    position: relative;
+    z-index: 10;
+}
+
+.footer-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-logo {
+    max-width: 180px;
+    filter: brightness(0) invert(1);
+}
+
+.footer-text {
+    text-align: right;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-subtext {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+/* Animações */
+@keyframes morph {
+    0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+    50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+    100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+    .hero { flex-direction: column; text-align: center; padding-top: 20px; }
+    .hero-content h1 { font-size: 2.8rem; }
+    .waitlist-form { flex-direction: column; border-radius: 20px; background: transparent; box-shadow: none; border: none; padding: 0; }
+    .waitlist-form input, .waitlist-form button { border-radius: 12px; width: 100%; }
+    .waitlist-form input { background: rgba(255,255,255,0.05); border: 1px solid var(--card-border); }
+    .features { flex-direction: column; margin-top: 40px; }
+    .floating-badge { display: none; }
+    .fluid-blob { width: 350px; height: 350px; }
+
+    .ecosystem-details { padding: 20px 20px 60px; }
+    .detail-card { flex-direction: column; padding: 30px 20px; gap: 15px; align-items: center; text-align: center; }
+    .detail-card:hover { transform: translateY(-5px); border-left: none; border-top: 3px solid var(--cyan); }
+
+    .about-mentor { flex-direction: column; text-align: center; padding: 40px 20px; gap: 30px; }
+    .hero-image-wrapper { margin-top: 40px; }
+
+    .features { flex-direction: column; margin-top: 40px; }
+    .feature-card { width: 100%; }
+}
+
+@media (max-width: 768px) {
+    .prev-btn { left: -10px; }
+    .next-btn { right: -10px; }
+    .video-card { min-width: 280px; max-width: 280px; }
+    .footer-content { flex-direction: column; text-align: center; }
+    .footer-text { text-align: center; }
+}
