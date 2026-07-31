@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
 document.getElementById('form-espera').addEventListener('submit', function(e) {
     e.preventDefault();
 
+    // Captura os valores dos 3 campos
     const nome = document.getElementById('nome').value;
     const email = document.getElementById('email').value;
     const whatsapp = document.getElementById('whatsapp').value;
@@ -44,17 +45,19 @@ document.getElementById('form-espera').addEventListener('submit', function(e) {
     btn.innerText = 'Enviando...';
 
     // COLE A SUA NOVA URL DO GOOGLE APPS SCRIPT AQUI
-    const scriptURL = 'COLE_SUA_NOVA_URL_AQUI';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzmFCBDx9SuAs44tNq1Pc9HVYw_4OalLhaV_YhaNK5CPLeFA0RZToSYDICydfQbWecm/exec';
 
+    // Prepara os dados para envio
     const formData = new FormData();
     formData.append('nome', nome);
     formData.append('email', email);
     formData.append('whatsapp', whatsapp);
 
+    // Envia para a planilha
     fetch(scriptURL, { method: 'POST', body: formData, mode: 'no-cors' })
         .then(() => {
             alert(`Excelente, ${nome}! Você foi adicionado à lista de espera VIP.`);
-            this.reset(); // Limpa todos os campos de uma vez
+            this.reset(); // Limpa o formulário
             btn.innerText = textoOriginal;
         })
         .catch(error => {
