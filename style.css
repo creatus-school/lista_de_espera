@@ -542,6 +542,17 @@ footer {
 
     .features { flex-direction: column; margin-top: 40px; }
     .feature-card { width: 100%; }
+
+    header {
+        justify-content: center; /* Centraliza o conteúdo horizontalmente */
+        flex-direction: column; /* Coloca a logo e o botão (se houver) em formato de coluna */
+        gap: 15px; /* Dá um respiro caso tenha um botão junto com a logo */
+        text-align: center;
+    }
+
+    .logo {
+        margin: 0 auto; /* Garante que a imagem da logo fique no centro */
+    }
 }
 
 @media (max-width: 768px) {
