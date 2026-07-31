@@ -30,7 +30,7 @@ document.getElementById('form-espera').addEventListener('submit', function(e) {
     btn.innerText = 'Enviando...';
 
     // COLE A SUA NOVA URL DO GOOGLE APPS SCRIPT AQUI
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbz4_L3lTWbCokyv7ZMT67BClDAxkmg2lbNUKXtqido/dev';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzUqqTTwmJbIdJ44Rr-QqejdBTiVFDaQuAIUBJ58NVvcicCIfLDzoyhTO5w2wP9LD1O/exec';
 
     const formData = new FormData();
     formData.append('nome', nome);
